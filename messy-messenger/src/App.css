@@ -1,0 +1,22 @@
+body,
+html {
+  overflow: hidden;
+}
+
+.ContactsRow {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.LogRow {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.CardRow {
+  height: 100vh;
+}
+
+.SingleContactCard {
+  width: 100%;
+}
