@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Message from './Message';
 import { db } from '../Firebase';
 
-function MessageLog() {
+function MessageLog({ user }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -11,12 +11,15 @@ function MessageLog() {
       .onSnapshot((snap) => {
         setMessages(() =>
           snap.docs.map((message) => {
-            return <Message key={message.id} textContent={message} />;
+            console.log('amazing', user);
+            return (
+              <Message key={message.id} textContent={message} user={user} />
+            );
           })
         );
       });
   }, []);
-  return <div>{messages}</div>;
+  return <div style={{ width: '33vh' }}>{messages}</div>;
 }
 
 export default MessageLog;

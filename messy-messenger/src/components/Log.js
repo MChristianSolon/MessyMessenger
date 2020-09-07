@@ -5,14 +5,19 @@ import MessageForm from './MessageForm';
 import '../Log.css';
 import MessageLog from './MessageLog';
 
-function Log() {
+function Log({ user }) {
+  console.log('LOG --', user);
   return (
-    <div className="LogRow">
-      <Card className="CardRow">
-        <CardContent>
-          <MessageLog />
+    <div>
+      <Card
+        variant="outlined"
+        className="CardRow "
+        style={{ backgroundColor: '#287c5c' }}
+      >
+        <CardContent className="LogRow">
+          <MessageLog user={user} />
         </CardContent>
-        <MessageForm />
+        <MessageForm user={user} />
       </Card>
     </div>
   );

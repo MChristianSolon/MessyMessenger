@@ -7,7 +7,7 @@ import List from '@material-ui/core/List';
 function Contacts() {
   return (
     <div className="ContactsRow">
-      <Card>
+      <Card variant="outlined" style={{ backgroundColor: '#287c5c' }}>
         <CardContent>
           <List>
             <SingleContact />

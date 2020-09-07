@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
+import { auth } from '../Firebase';
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -100,6 +100,14 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
+  const handleLogOut = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    auth.signOut().then(() => {
+      window.location.reload(false);
+    });
+  };
+
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
@@ -116,7 +124,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleLogOut}>Log-Out</MenuItem>
     </Menu>
   );
 

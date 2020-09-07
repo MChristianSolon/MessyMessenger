@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { db, timestamp } from '../Firebase';
 import '../Log.css';
-function MessageForm() {
+function MessageForm({ user }) {
   const [text, setText] = useState('');
 
   function handleChange(val) {
@@ -12,7 +12,7 @@ function MessageForm() {
     e.preventDefault();
     db.collection('Messages').add({
       message: text,
-      user: 'John',
+      user,
       time: timestamp(),
     });
     console.log('submitted');
@@ -30,6 +30,7 @@ function MessageForm() {
           className="MessageField"
           value={text}
           onChange={handleChange}
+          style={{ background: 'white' }}
         />
       </form>
     </div>

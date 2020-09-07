@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Log from './Log';
 import Contacts from './Contacts';
 import Activity from './Activity';
-function Chat() {
+function Chat({ user }) {
   return (
     <div>
       <Grid container spacing={0}>
@@ -11,7 +11,7 @@ function Chat() {
           <Contacts />
         </Grid>
         <Grid item xs={4}>
-          <Log />
+          <Log user={user} />
         </Grid>
         <Grid item xs={4}>
           <Activity />

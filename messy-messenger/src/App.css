@@ -3,6 +3,11 @@ html {
   overflow: hidden;
 }
 
+body {
+  background: #329b73;
+  margin: 0px;
+}
+
 .ContactsRow {
   overflow-y: scroll;
   height: 100vh;
@@ -10,7 +15,7 @@ html {
 
 .LogRow {
   overflow-y: scroll;
-  height: 100vh;
+  height: 83vh;
 }
 
 .CardRow {
@@ -19,4 +24,8 @@ html {
 
 .SingleContactCard {
   width: 100%;
+}
+
+.chat-cardContent {
+  width: fit-content;
 }

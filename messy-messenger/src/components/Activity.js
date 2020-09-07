@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 function Activity() {
   return (
     <div>
-      <Card className="CardRow">
+      <Card className="CardRow" style={{ backgroundColor: 'white' }}>
         <CardContent>
           <h1>This is the activity column</h1>
         </CardContent>

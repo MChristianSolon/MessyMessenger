@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/storage';
+import 'firebase/auth';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -15,7 +16,21 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+//user config file
+var uiConfig = {
+  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+  ],
+  callbacks: {
+    signInSuccessWithAuthResult: () => false,
+  },
+};
+
 let db = firebase.firestore();
 let storage = firebase.storage();
+let auth = firebase.auth();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
-export { db, storage, timestamp };
+export { db, storage, auth, timestamp, uiConfig };
